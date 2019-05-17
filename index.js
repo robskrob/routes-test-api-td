@@ -13,7 +13,10 @@ const {Order} = require('./models/order');
 const {OrderResource} = require('./models/order_resource');
 const {ReturnOrder} = require('./models/return_order');
 
+//Server Config
 let domainWhiteList = [
+  process.env.PRODUCTION_URL,
+  process.env.BETA_URL,
 ];
 
 if (process.env.NODE_ENV === 'development') {
