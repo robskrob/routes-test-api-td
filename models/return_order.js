@@ -5,6 +5,14 @@ class ReturnOrder {
     this.orderResource = orderResource;
   }
 
+  getEmail() {
+    return this.params.email || '';
+  }
+
+  getOrderNumber() {
+    return this.params.orderNumber || '';
+  }
+
   async valid() {
     let order = await this.orderResource.getOrder(this.getOrderNumber());
     let valid = order.validForReturn(this.getEmail(), this.getOrderNumber());
@@ -13,4 +21,4 @@ class ReturnOrder {
   }
 }
 
-module.exports.OrderResource = OrderResource;
+module.exports.ReturnOrder = ReturnOrder;

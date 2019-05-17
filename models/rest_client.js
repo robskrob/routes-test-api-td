@@ -5,4 +5,4 @@ class RestClient {
 
 }
 
-module.exports.OrderResource = OrderResource;
+module.exports.RestClient = RestClient;

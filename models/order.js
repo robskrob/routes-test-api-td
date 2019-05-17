@@ -5,4 +5,4 @@ class Order {
 
 }
 
-module.exports.OrderResource = OrderResource;
+module.exports.Order = Order;
