@@ -9,9 +9,9 @@ const app = express();
 const port    = process.env.PORT;
 
 const RestClient = require('./models/rest_client').RestClient;
-const {Order} = require('./models/order');
-const {OrderResource} = require('./models/order_resource');
-const {ReturnOrder} = require('./models/return_order');
+const Order = require('./models/order').Order;
+const OrderResource = require('./models/order_resource').OrderResource;
+const ReturnOrder = require('./models/return_order').ReturnOrder;
 
 //Server Config
 let domainWhiteList = [
@@ -40,7 +40,9 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.post('/returns', async (req, res) => {
+  console.log("the OrderResource", OrderResource)
   let orderResource = new OrderResource(new RestClient(), Order);
+  console.log("the orderResource", orderResource)
 
   let returnOrder = new ReturnOrder(req.body, orderResource);
 
